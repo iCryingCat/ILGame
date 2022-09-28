@@ -11,10 +11,10 @@ namespace GFramework.Network
             this.channel = channel;
         }
 
-        public void ToHandleInput(InputData inputData)
+        public void ToHandleInput(InputContainer inputData)
         {
-            var data = ProtoBufNetSerializer.Encode<InputData>(inputData);
-            this.channel.Send(ProtoDefine.C2S_Input, data);
+            var data = ProtoBufNetSerializer.Encode<InputContainer>(inputData);
+            this.channel.Send(ProtoDefine.C2S_Tick_Input, data);
         }
     }
 }

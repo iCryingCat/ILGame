@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7334019285554194742}
+  - component: {fileID: 1342502091256032967}
   m_Layer: 5
   m_Name: PlayerInfo
   m_TagString: Untagged
@@ -37,6 +38,30 @@ RectTransform:
   m_AnchoredPosition: {x: 200, y: -100}
   m_SizeDelta: {x: 400, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1342502091256032967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365324440336220873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289bb7cafbbdb4446a9a5646bc7986ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layer: 0
+  node: 0
+  bindingViewPath: E:/study/unity/ILGame/Assets/GameLogic/UI/Main/PlayerInfo/UIPlayerInfo.cs
+  bindingViewType: UIPlayerInfo
+  bindingViewModelType: PlayerInfoControl
+  varsArr:
+  - fieldName: txtName
+    gameObject: {fileID: 6079032429970892292}
+    component: {fileID: 1592360096139289036}
+  - fieldName: imgHead
+    gameObject: {fileID: 6159798802015543347}
+    component: {fileID: 4433951864995850202}
 --- !u!1 &6079032429970892292
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,27 +1,40 @@
 using GFramework;
-using GFramework.Network;
 using GFramework.UI;
 
 using Share.Network;
-using Share.Protocols;
-
 using UnityEngine.UI;
 
 namespace GameLogic.UI
 {
-    public class UILogin : BaseView<ModelLogin>
+    public class UILogin : BaseView<LoginControl>
     {
         GLogger logger = new GLogger("UILogin");
 
         protected override void BindEvents()
         {
             base.BindEvents();
-            this.btnLogin.onClick.AddListener(this.JoinOtherRoom);
+            this.inputName.onValueChanged.AddListener((text) => this.BindingContext.userName.Value = text);
+            this.inputPwd.onValueChanged.AddListener((text) => this.BindingContext.password.Value = text);
+            this.btnLogin.onClick.AddListener((this.BindingContext.OnLogin));
         }
 
-        public void JoinOtherRoom()
+        private void OnUpdateName(string oldValue, string newValue)
         {
-            RpcAgent.Instance.hallRpc.JoinOtherRoom(new JoinRoomReq() { port = NetTool.GetAvailablePort() }, this.BindingContext.JoinOtherRoom);
+            if (oldValue == newValue) return;
+            this.inputName.text = newValue;
+        }
+
+        private void OnUpdatePwd(string oldValue, string newValue)
+        {
+            if (oldValue == newValue) return;
+            this.inputPwd.text = newValue;
+        }
+
+        public override void BindProperty()
+        {
+            base.BindProperty();
+            this.propertyBinder.Add<string>("userName", OnUpdateName);
+            this.propertyBinder.Add<string>("password", OnUpdatePwd);
         }
 
         // ++
@@ -34,9 +47,9 @@ namespace GameLogic.UI
         private Button btnLogin;
         protected override void BindVars()
         {
-            inputName = this.GetVar<InputField>(0);
-            inputPwd = this.GetVar<InputField>(1);
-            btnLogin = this.GetVar<Button>(2);
+            this.inputName = this.GetVar<InputField>(0);
+            this.inputPwd = this.GetVar<InputField>(1);
+            this.btnLogin = this.GetVar<Button>(2);
         }
         // --
     }

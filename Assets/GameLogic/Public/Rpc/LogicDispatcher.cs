@@ -49,12 +49,13 @@ namespace Share.Network
                 case ProtoDefine.C2S_Login:
                     Dispatch(ProtoBufNetSerializer.Decode<LoginResp>(data));
                     break;
-                case ProtoDefine.C2S_JoinOtherRoom:
-                    Dispatch(ProtoBufNetSerializer.Decode<JoinRoomResp>(data));
+                case ProtoDefine.C2S_Match:
+                    Dispatch(ProtoBufNetSerializer.Decode<MatchResp>(data));
                     break;
                 case ProtoDefine.S2C_OtherJoinRoom:
                     DealWithOtherJoinRoom(ProtoBufNetSerializer.Decode<JoinRoomResp>(data));
                     break;
+
                 default:
                     logger.E($"没有找到协议--{define}--的定义！！！");
                     break;

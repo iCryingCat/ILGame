@@ -8,8 +8,8 @@ namespace GFramework.Network
         {
             switch (define)
             {
-                case ProtoDefine.S2C_TICK_Update:
-                    InputData inputData = ProtoBufNetSerializer.Decode<InputData>(data);
+                case ProtoDefine.S2C_Tick_Update:
+                    InputContainer inputData = ProtoBufNetSerializer.Decode<InputContainer>(data);
                     TickAgent.Instance.OnSynInput(0, inputData);
                     break;
             }

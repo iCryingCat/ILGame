@@ -15,7 +15,7 @@ namespace Share.Network
 
         public void Setup()
         {
-            TcpClientProxy proxy = new TcpClientProxy(new LogicDispatcher(), new ProtoPacker());
+            TcpClientProxy proxy = new TcpClientProxy(NetTool.GetAvailablePort(), new LogicDispatcher(), new ProtoPacker());
             proxy.Connect(new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8888));
             this.hallRpc = new HallService(proxy);
         }

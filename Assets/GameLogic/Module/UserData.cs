@@ -11,5 +11,10 @@ namespace GameLogic
         public string userName;
         public string nickName;
 
+        public UserData(string userName, string nickName)
+        {
+            this.userName = userName;
+            this.nickName = nickName;
+        }
     }
 }

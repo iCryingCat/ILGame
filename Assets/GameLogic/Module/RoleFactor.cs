@@ -11,7 +11,7 @@ namespace GameLogic
     {
         GLogger logger = new GLogger("RoleFactor");
 
-        public void SpawnNetPlayer(int roleID, bool isLocal)
+        public void SpawnNetPlayer(ulong roleID, bool isLocal)
         {
             GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube);
             NetPlayer player = go.AddComponent<NetPlayer>();
