@@ -30,17 +30,17 @@ namespace GameLogic.UI
             this.inputPwd.text = newValue;
         }
 
-        public override void BindProperty()
+        public override void BindProp()
         {
-            base.BindProperty();
+            base.BindProp();
             this.propertyBinder.Add<string>("userName", OnUpdateName);
             this.propertyBinder.Add<string>("password", OnUpdatePwd);
         }
 
         // ++
-        public override string BindingPath()
+        public override string BindPath()
         {
-            return "Login/UILogin.prefab";
+            return "Login/UILogin";
         }
         private InputField inputName;
         private InputField inputPwd;

@@ -29,16 +29,16 @@ namespace GameLogic.UI
             this.BindingContext.OnMatch();
         }
 
-        public override void BindProperty()
+        public override void BindProp()
         {
-            base.BindProperty();
+            base.BindProp();
             this.propertyBinder.Add<UserData>("uiPlayerInfo", OnUpdatePlayerInfo);
-            this.propertyBinder.Add<string>("playerNum", OnUpdatePlayerNum);
+            this.propertyBinder.Add<int>("playerNum", OnUpdatePlayerNum);
         }
 
-        private void OnUpdatePlayerNum(string oldValue, string newValue)
+        private void OnUpdatePlayerNum(int oldValue, int newValue)
         {
-            this.txtPlayerNum.text = newValue;
+            this.txtPlayerNum.text = newValue.ToString();
         }
 
         private void OnUpdatePlayerInfo(UserData oldValue, UserData newValue)
@@ -47,9 +47,9 @@ namespace GameLogic.UI
         }
 
         // ++
-        public override string BindingPath()
+        public override string BindPath()
         {
-            return "Main/UIMain.prefab";
+            return "Main/UIMain";
         }
         private UIPlayerInfo uiPlayerInfo;
         private RectTransform goMatching;

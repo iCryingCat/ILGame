@@ -11,20 +11,26 @@ namespace GameLogic.UI
     public class MainControl : BaseViewModel
     {
         public BindableProperty<UserData> uiPlayerInfo = new BindableProperty<UserData>();
-        public BindableProperty<string> playerNum = new BindableProperty<string>();
+        public BindableProperty<int> playerNum = new BindableProperty<int>();
+
+        public MainControl()
+        {
+            EventHub.AddListener(EventDefine.PlayerJoinRoom, () =>
+            {
+                this.playerNum.Value++;
+            });
+        }
 
         public void OnMatch()
         {
-            int port = NetTool.GetAvailablePort();
-            IPAddress iPAddress = NetTool.GetLocalHost();
-            ulong netID = NetTool.GenNetID(new IPEndPoint(iPAddress, port));
-            RpcAgent.Instance.hallRpc.ToMatch(new MatchReq(netID, port), (resp) =>
+            IPEndPoint localIP = TickAgent.Instance.handlerIP;
+            ulong netID = NetTool.GenNetID(localIP);
+            RpcAgent.Instance.hallRpc.ToMatch(new MatchReq(netID, localIP.Port), (resp) =>
             {
                 MatchResp matchResp = resp as MatchResp;
                 if (matchResp == null) return;
-                this.playerNum.Value = matchResp.playerNum.ToString();
-                // SceneManager.LoadScene("battle", LoadSceneMode.Additive);
-                // GameHub.Instance.roleFactor.SpawnNetPlayer(matchResp.netID, true);
+                this.playerNum.Value = matchResp.playerNum;
+                TickAgent.Instance.OnPlayerJoinRoom(matchResp.roomID, matchResp.netID, true);
             });
         }
 

@@ -1,9 +1,5 @@
-using System.Net;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using GFramework.Network;
+
 using ProtoBuf;
 
 namespace Share.Protocols
@@ -13,16 +9,16 @@ namespace Share.Protocols
     {
         public ulong frameID;
         public ulong roomID;
-        public IPEndPoint iPEndPoint;
+        public ulong netID;
         public InputContainer inputContainer;
 
         public TickUpdateData() { }
 
-        public TickUpdateData(ulong frameID, ulong roomID, IPEndPoint iPEndPoint, InputContainer inputContainer)
+        public TickUpdateData(ulong frameID, ulong roomID, ulong netID, InputContainer inputContainer)
         {
             this.frameID = frameID;
             this.roomID = roomID;
-            this.iPEndPoint = iPEndPoint;
+            this.netID = netID;
             this.inputContainer = inputContainer;
         }
     }

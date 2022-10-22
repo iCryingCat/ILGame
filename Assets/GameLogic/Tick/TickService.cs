@@ -1,10 +1,12 @@
 using GFramework.Network;
+using Share.Protocols;
 
 namespace GFramework.Network
 {
     public class TickService : IScene2Battle
     {
-        private AChannel channel;
+        GLogger logger = new GLogger("TickService");
+        public readonly AChannel channel;
 
         public TickService(AChannel channel)
         {
@@ -13,8 +15,14 @@ namespace GFramework.Network
 
         public void ToHandleInput(InputContainer inputData)
         {
-            var data = ProtoBufNetSerializer.Encode<InputContainer>(inputData);
+            TickUpdateData tickUpdateData = new TickUpdateData();
+            tickUpdateData.frameID = TickAgent.Instance.currFrameID;
+            tickUpdateData.roomID = TickAgent.Instance.roomID;
+            tickUpdateData.netID = TickAgent.Instance.netID;
+            tickUpdateData.inputContainer = inputData;
+            var data = ProtoBufNetSerializer.Encode<TickUpdateData>(tickUpdateData);
             this.channel.Send(ProtoDefine.C2S_Tick_Input, data);
+            logger.P($"向{this.channel.iPEndPoint}发送帧数据！！！");
         }
     }
 }

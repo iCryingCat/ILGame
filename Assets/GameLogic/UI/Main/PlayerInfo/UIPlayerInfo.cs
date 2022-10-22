@@ -7,9 +7,9 @@ namespace GameLogic.UI
 {
     public class UIPlayerInfo : BaseView<PlayerInfoControl>
     {
-        public override void BindProperty()
+        public override void BindProp()
         {
-            base.BindProperty();
+            base.BindProp();
             this.propertyBinder.Add<string>("userName", this.UpdateUserName);
         }
 
@@ -24,9 +24,9 @@ namespace GameLogic.UI
         }
 
         // ++
-        public override string BindingPath()
+        public override string BindPath()
         {
-            return "Main/PlayerInfo.prefab";
+            return "Main/PlayerInfo";
         }
         private Text txtName;
         private Image imgHead;

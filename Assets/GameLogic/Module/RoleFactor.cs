@@ -11,11 +11,11 @@ namespace GameLogic
     {
         GLogger logger = new GLogger("RoleFactor");
 
-        public void SpawnNetPlayer(ulong roleID, bool isLocal)
+        public NetPlayer SpawnNetPlayer(ulong roleID)
         {
             GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube);
             NetPlayer player = go.AddComponent<NetPlayer>();
-            player.Init(isLocal);
+            return player;
         }
     }
 }

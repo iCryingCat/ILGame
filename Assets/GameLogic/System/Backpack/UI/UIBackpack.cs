@@ -98,7 +98,7 @@ namespace GFramework.Backpack
 
         }
 
-        public override string BindingPath()
+        public override string BindPath()
         {
             throw new NotImplementedException();
         }

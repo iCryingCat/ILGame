@@ -13,7 +13,7 @@ namespace GameLogic.UI
         }
 
         // ++
-        public override string BindingPath()
+        public override string BindPath()
         {
             return "Logo/UILogo.prefab";
         }

@@ -1,6 +1,7 @@
 ﻿using GameLogic;
 using GameLogic.UI;
 using GFramework;
+using GFramework.Network;
 using GFramework.UI;
 
 using Share.Network;
@@ -17,7 +18,8 @@ public class GameSetup : MonoBehaviour
     {
         DontDestroyOnLoad(this);
         RpcAgent.Instance.Setup();
-        CameraMgr.Instance.Setup();
+        TickAgent.Instance.Setup();
+        CameraMgr.Instance.GenUICamera();
         UICanvas.Setup();
         UIMgr.ShowUI<UILogin, LoginControl>().BindingContext.Init(new UserData("xzj", "南山北海"));
     }

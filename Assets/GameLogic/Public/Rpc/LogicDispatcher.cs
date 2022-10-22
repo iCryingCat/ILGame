@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 
 using GameLogic;
-
 using GFramework;
 using GFramework.Network;
 
 using Share.Protocols;
+
+using UnityEngine.SceneManagement;
 
 namespace Share.Network
 {
@@ -55,10 +56,11 @@ namespace Share.Network
                 case ProtoDefine.S2C_OtherJoinRoom:
                     DealWithOtherJoinRoom(ProtoBufNetSerializer.Decode<JoinRoomResp>(data));
                     break;
-
-                default:
-                    logger.E($"没有找到协议--{define}--的定义！！！");
+                case ProtoDefine.S2C_Game_Start:
+                    DealWithOtherGameStart(ProtoBufNetSerializer.Decode<AckResp>(data));
                     break;
+                default:
+                    throw new Exception($"没有找到协议--{define}--的定义！！！");
             }
         }
 
@@ -83,7 +85,22 @@ namespace Share.Network
         private void DealWithOtherJoinRoom(JoinRoomResp joinRoomResp)
         {
             logger.P("处理其他玩家加入房间消息");
-            GameHub.Instance.roleFactor.SpawnNetPlayer(0, false);
+            TickAgent.Instance.OnPlayerJoinRoom(joinRoomResp.roomID, joinRoomResp.netID, false);
+            EventHub.Call(EventDefine.PlayerJoinRoom);
+        }
+
+        private void DealWithOtherGameStart(AckResp ackResp)
+        {
+            if (ackResp.ok == 0) return;
+            logger.P("处理游戏开始消息");
+            byte[] ack = ProtoBufNetSerializer.Encode<AckResp>(new AckResp(1));
+            this.channel.Send(ProtoDefine.S2C_Game_Start, ack);
+            Loom.QueueOnMainThread((arg) =>
+            {
+                TickAgent.Instance.OnGameStart();
+                SceneManager.LoadScene("battle", LoadSceneMode.Additive);
+                UIMgr.PopUI();
+            }, null);
         }
     }
 }

@@ -38,6 +38,7 @@
   <ItemGroup>
      <Compile Include="Assets\GFramework\Share\Net\Common\NetTool.cs" />
      <Compile Include="Assets\GFramework\Plugins\DOTween Pro v1.0.065\DOTweenPro\DOTweenProShortcuts.cs" />
+     <Compile Include="Assets\GFramework\Share\Net\Public\AckResp.cs" />
      <Compile Include="Assets\GFramework\Plugins\DOTween Pro v1.0.065\DOTweenPro\DOTweenTextMeshPro.cs" />
      <Compile Include="Assets\GFramework\Plugins\SharedSDK\ShareSdk\MiniJSON.cs" />
      <Compile Include="Assets\GFramework\Plugins\SharedSDK\ShareSdk\AndroidMobSDKImpl.cs" />
@@ -60,6 +61,7 @@
      <Compile Include="Assets\GFramework\Core\Pool\MonoPool.cs" />
      <Compile Include="Assets\GFramework\Lua\HotFix\MD5Helper.cs" />
      <Compile Include="Assets\GameLogic\System\Backpack\InventorySystem.cs" />
+     <Compile Include="Assets\GFramework\Share\Net\Core\Base\IPacker.cs" />
      <Compile Include="Assets\GFramework\Lua\HotFix\HotfixController.cs" />
      <Compile Include="Assets\GameLogic\Tick\TickDispatcher.cs" />
      <Compile Include="Assets\GameLogic\UI\Main\PlayerInfo\UIPlayerInfo.cs" />
@@ -78,6 +80,7 @@
      <Compile Include="Assets\GFramework\UI\IView.cs" />
      <Compile Include="Assets\GFramework\Core\Resources\BundleMgr.cs" />
      <Compile Include="Assets\GFramework\CameraMgr.cs" />
+     <Compile Include="Assets\GameLogic\Module\CameraFollower.cs" />
      <Compile Include="Assets\GFramework\UI\MVVM\BaseView.cs" />
      <Compile Include="Assets\GameLogic\Public\module\InputContainer.cs" />
      <Compile Include="Assets\GFramework\UI\MVVM\BaseData.cs" />
@@ -91,7 +94,6 @@
      <Compile Include="Assets\GameLogic\Public\Protocols\Logic\JoinRoom.cs" />
      <Compile Include="Assets\GameLogic\System\CharacterSystem\CharacterSystem.cs" />
      <Compile Include="Assets\GFramework\Xlsx\JsonTableParser.cs" />
-     <Compile Include="Assets\GFramework\Core\Scene\MonoLoop.cs" />
      <Compile Include="Assets\GFramework\Core\Pool\BasePool.cs" />
      <Compile Include="Assets\GFramework\Common\MonoSingleton\MonoSingleton.cs" />
      <Compile Include="Assets\GFramework\Plugins\SharedSDK\SDKController.cs" />
@@ -100,7 +102,6 @@
      <Compile Include="Assets\GameLogic\System\Battle\Skill.cs" />
      <Compile Include="Assets\GFramework\Plugins\SharedSDK\ShareSdk\Android\AndroidImpl.cs" />
      <Compile Include="Assets\GameLogic\Public\Services\ITickService.cs" />
-     <Compile Include="Assets\GFramework\Share\Net\Core\Base\ErrorResp.cs" />
      <Compile Include="Assets\GFramework\Share\Net\Public\ProtoDefine.cs" />
      <Compile Include="Assets\GameLogic\UI\Login\LoginControl.cs" />
      <Compile Include="Assets\GFramework\Common\Extern\UIViewAttr.cs" />
@@ -113,6 +114,7 @@
      <Compile Include="Assets\GameLogic\Module\RoleInfo.cs" />
      <Compile Include="Assets\GFramework\Plugins\DOTween Pro v1.0.065\DOTweenPro\DOTweenTk2d.cs" />
      <Compile Include="Assets\GameLogic\Public\Protocols\Logic\Match.cs" />
+     <Compile Include="Assets\GFramework\Core\MonoLoop.cs" />
      <Compile Include="Assets\GFramework\Util\PathUtil.cs" />
      <Compile Include="Assets\GameLogic\UI\Main\MainControl.cs" />
      <Compile Include="Assets\GameLogic\System\Backpack\UI\UISlot.cs" />
@@ -126,7 +128,6 @@
      <Compile Include="Assets\GFramework\UI\MVC\MVCMgr.cs" />
      <Compile Include="Assets\GameLogic\Public\Rpc\HallService.cs" />
      <Compile Include="Assets\GFramework\Share\Net\Core\Base\ADispatcher.cs" />
-     <Compile Include="Assets\GFramework\Share\Net\Core\Base\IProxy.cs" />
      <Compile Include="Assets\GameLogic\System\CharacterSystem\ICharacterAttr.cs" />
      <Compile Include="Assets\GFramework\Core\Timer\Timer.cs" />
      <Compile Include="Assets\GFramework\UI\MVC\BasePanel.cs" />
@@ -139,13 +140,13 @@
      <Compile Include="Assets\GFramework\Plugins\SharedSDK\ShareSdk\MobSDKImpl.cs" />
      <Compile Include="Assets\GFramework\Plugins\DOTween Pro v1.0.065\DOTween\Modules\DOTweenModulePhysics.cs" />
      <Compile Include="Assets\GFramework\Core\Sound\UISounder.cs" />
-     <Compile Include="Assets\GFramework\Share\Net\Core\Base\APacker.cs" />
      <Compile Include="Assets\GFramework\Core\Shortcuts\Shortcuts.cs" />
      <Compile Include="Assets\GFramework\Util\TimeUtil.cs" />
      <Compile Include="Assets\GFramework\Xlsx\TableParser.cs" />
      <Compile Include="Assets\GameLogic\Module\GameHub.cs" />
      <Compile Include="Assets\GFramework\Plugins\DOTween Pro v1.0.065\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
      <Compile Include="Assets\GFramework\Plugins\DOTween Pro v1.0.065\DOTween\Modules\DOTweenModuleSprite.cs" />
+     <Compile Include="Assets\GFramework\Core\Loom.cs" />
      <Compile Include="Assets\GFramework\Share\Log\GLogger.cs" />
      <Compile Include="Assets\GFramework\UI\MVVM\PropertyBinder.cs" />
      <Compile Include="Assets\GFramework\Share\Net\Core\Udp\UdpClientProxy.cs" />
@@ -160,6 +161,7 @@
      <Compile Include="Assets\GFramework\IL\ILManager.cs" />
      <Compile Include="Assets\GFramework\Plugins\SharedSDK\ShareSdk\ShareSDK.cs" />
      <Compile Include="Assets\GameLogic\System\Backpack\IStorage.cs" />
+     <Compile Include="Assets\GameLogic\Public\Protocols\Tick\TickUpdateDataList.cs" />
      <Compile Include="Assets\GameLogic\System\CharacterSystem\IAttrStrategy.cs" />
      <Compile Include="Assets\GFramework\EnumDefine.cs" />
      <Compile Include="Assets\GFramework\Common\Extern\APIExtern.cs" />
